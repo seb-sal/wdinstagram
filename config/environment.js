@@ -1,7 +1,7 @@
 var _ = require('lodash');
 
 var localEnvVars = {
-  TITLE:      'wdinstagram',
+  TITLE:      'WDINSTAGRAM',
   SAFE_TITLE: 'wdinstagram'
 };
 
