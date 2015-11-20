@@ -3,6 +3,8 @@ var path         = require('path');
 var favicon      = require('serve-favicon');
 var logger       = require('morgan');
 var bodyParser   = require('body-parser');
+var session      = require('express-session');
+var passport     = require('passport');
 var debug        = require('debug')('app:http');
 var cookieParser = require('cookie-parser');
 
@@ -32,6 +34,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser('notsosecretnowareyou'));
+app.use(session({
+  secret: 'WDIRocks!',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// mount passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routing layers: favicon, static assets, dynamic routes, or 404…
 
